@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Libro de Amor 💖</title>
+  <title>Contrato y Recuerdos de Amor 💖</title>
   <style>
     body {
       margin: 0;
@@ -13,21 +13,16 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      overflow-x: hidden;
     }
 
     .libro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       width: 90%;
-      max-width: 700px;
-      padding: 20px;
-      background: white;
+      max-width: 800px;
+      background: #ffffff;
+      padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      animation: flipIn 1s ease forwards;
-      opacity: 0;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      animation: fadeIn 1s ease;
     }
 
     .pagina {
@@ -35,106 +30,155 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 30px;
-      animation: pasarPagina 1s forwards;
+      animation: slideIn 0.8s ease forwards;
     }
 
     .pagina img, .pagina video {
       max-width: 100%;
+      margin-top: 20px;
       border-radius: 15px;
-      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
     .botones {
-      margin-top: 20px;
       display: flex;
       justify-content: center;
+      margin-top: 30px;
       gap: 20px;
     }
 
     button {
-      padding: 10px 20px;
-      background: #d81b60;
+      background-color: #d81b60;
       color: white;
       border: none;
+      padding: 10px 25px;
       border-radius: 12px;
-      cursor: pointer;
       font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    @keyframes pasarPagina {
-      from { opacity: 0; transform: rotateY(90deg); }
-      to { opacity: 1; transform: rotateY(0); }
-    }
-
-    @keyframes flipIn {
-      to { opacity: 1; }
+    button:hover {
+      background-color: #ad1457;
     }
 
     h2 {
       color: #ad1457;
       margin-bottom: 20px;
     }
+
+    .clausula {
+      background: #fce4ec;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 12px;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
   <div class="libro">
+    <!-- PÁGINA 1: Introducción -->
     <div class="pagina" style="display: flex;">
-      <h2>📖 Bienvenida a nuestro libro de amor</h2>
-      <p style="font-size: 18px;">Este pequeño rincón es para recordarte cuánto te amo y todos esos momentos bonitos que compartimos. ❤️</p>
+      <h2>💞 Contrato de Amor</h2>
+      <p>Mi amor, este es nuestro pequeño contrato. Un recordatorio de lo que somos y todo lo que prometo construir contigo. Presiona "Siguiente" para leerlo.</p>
     </div>
 
+    <!-- PÁGINA 2: Cláusulas -->
     <div class="pagina">
-      <h2>🖼️ Recuerdo 1</h2>
+      <h2>📜 Nuestras Cláusulas</h2>
+      <div class="clausula">❤️ Haré que sonrías incluso en tus días grises.</div>
+      <div class="clausula">🔥 Te robaré besos y abrazos sin previo aviso.</div>
+      <div class="clausula">💋 Mi amor será intenso, loco y juguetón.</div>
+      <div class="clausula">🛏️ Mis caricias serán abrigo y mis palabras, refugio.</div>
+      <div class="clausula">🌹 Amo cada parte de ti: tu mente, tu alma, tu cuerpo.</div>
+      <div class="clausula">🫂 Siempre lucharemos por lo nuestro.</div>
+      <div class="clausula">✨ Confío en ti y en nuestro futuro juntos.</div>
+    </div>
+
+    <!-- PÁGINA 3: Foto 1 -->
+    <div class="pagina">
+      <h2>📸 Nuestro recuerdo 1</h2>
       <img src="fotobb1.jpg" alt="Foto 1">
-      <p>Esta fue una de las veces donde tu sonrisa fue mi lugar favorito del mundo. 🌎💘</p>
+      <p>Ese día en que tu sonrisa fue mi lugar favorito. 💫</p>
     </div>
 
+    <!-- PÁGINA 4: Foto 2 -->
     <div class="pagina">
-      <h2>🖼️ Recuerdo 2</h2>
+      <h2>📸 Nuestro recuerdo 2</h2>
       <img src="fotobb2.jpg" alt="Foto 2">
-      <p>No hay imagen que capture lo que siento por ti, pero esta se acerca. 💫</p>
+      <p>Una imagen que habla de lo mucho que te amo. 🌷</p>
     </div>
 
+    <!-- PÁGINA 5: Video 1 -->
     <div class="pagina">
-      <h2>🎥 Video especial</h2>
+      <h2>🎥 Momento especial</h2>
       <video controls>
         <source src="videobai1.mp4" type="video/mp4">
         Tu navegador no soporta este video.
       </video>
-      <p>Un pequeño momento grabado, pero eterno en mi corazón. 💓</p>
+      <p>Un instante que quiero guardar por siempre. 🎞️</p>
     </div>
 
+    <!-- PÁGINA 6: Video 2 -->
     <div class="pagina">
-      <h2>🎥 Otro momento juntos</h2>
+      <h2>🎥 Nuestro otro momento</h2>
       <video controls>
         <source src="videobb2.mp4" type="video/mp4">
         Tu navegador no soporta este video.
       </video>
-      <p>Cada segundo contigo es un recuerdo que quiero volver a vivir. 🎞️</p>
+      <p>Un recuerdo más que se queda en mi alma. 💘</p>
     </div>
 
+    <!-- PÁGINA 7: Final -->
     <div class="pagina">
-      <h2>💌 Final</h2>
+      <h2>💌 Siempre tú</h2>
       <p style="font-size: 18px;">
-        Gracias por ser parte de mi historia. Este libro no tiene fin, porque cada día contigo se escribe una nueva página. Te amo. 💖
+        Gracias por estos momentos, por tu paciencia, tu amor y tu dulzura. 
+        <br><br>
+        Cada día contigo es una bendición. Te elijo hoy, mañana y siempre. 
+        <br><br>
+        Te amo infinitamente. 💖
       </p>
     </div>
 
+    <!-- BOTONES -->
     <div class="botones">
-      <button onclick="anterior()">⏮️ Anterior</button>
-      <button onclick="siguiente()">Siguiente ⏭️</button>
+      <button id="btnAnterior" onclick="anterior()" style="display: none;">⏮️ Anterior</button>
+      <button id="btnSiguiente" onclick="siguiente()">Siguiente ⏭️</button>
     </div>
   </div>
 
   <script>
     let paginaActual = 0;
     const paginas = document.querySelectorAll('.pagina');
+    const btnAnterior = document.getElementById("btnAnterior");
+    const btnSiguiente = document.getElementById("btnSiguiente");
 
     function mostrarPagina(index) {
       paginas.forEach((p, i) => {
         p.style.display = i === index ? 'flex' : 'none';
+      });
+
+      // Ocultar botón "Anterior" en la primera página
+      btnAnterior.style.display = index === 0 ? "none" : "inline-block";
+
+      // Mostrar u ocultar botón "Siguiente" en la última página
+      btnSiguiente.style.display = index === paginas.length - 1 ? "none" : "inline-block";
+
+      // Pausar todos los videos excepto el actual
+      document.querySelectorAll("video").forEach((v, i) => {
+        if (i !== index) v.pause();
       });
     }
 
