@@ -7,21 +7,71 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fff0f5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      overflow: hidden;
+    }
+
+    .corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .corazones span {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: flotar 10s infinite ease-in;
+      opacity: 0.4;
+    }
+
+    .corazones span::before,
+    .corazones span::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .corazones span::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazones span::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
     }
 
     .libro {
+      position: relative;
+      z-index: 1;
       width: 90%;
       max-width: 800px;
-      background: #ffffff;
+      margin: 40px auto;
+      background: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
       animation: fadeIn 1s ease;
     }
 
@@ -48,18 +98,20 @@
     }
 
     button {
-      background-color: #d81b60;
+      background: linear-gradient(to right, #f06292, #e91e63);
       color: white;
       border: none;
-      padding: 10px 25px;
-      border-radius: 12px;
+      padding: 12px 30px;
+      border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #f48fb1;
     }
 
     button:hover {
-      background-color: #ad1457;
+      background: #ad1457;
+      transform: scale(1.05);
     }
 
     h2 {
@@ -68,15 +120,18 @@
     }
 
     .clausula {
-      background: #fce4ec;
+      background: #fff0f5;
       padding: 15px;
       margin: 10px 0;
+      border-left: 5px solid #ec407a;
       border-radius: 12px;
+      text-align: left;
+      font-size: 17px;
     }
 
     @keyframes slideIn {
-      from { opacity: 0; transform: translateX(100px); }
-      to { opacity: 1; transform: translateX(0); }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -87,117 +142,125 @@
 </head>
 <body>
 
-  <div class="libro">
-    <!-- PÁGINA 1: Introducción -->
-    <div class="pagina" style="display: flex;">
-      <h2>💞 Contrato de Amor</h2>
-      <p>Mi amor, este es nuestro pequeño contrato. Un recordatorio de lo que somos y todo lo que prometo construir contigo. Presiona "Siguiente" para leerlo.</p>
-    </div>
+<div class="corazones">
+  <span style="left: 10%; animation-delay: 0s;"></span>
+  <span style="left: 25%; animation-delay: 2s;"></span>
+  <span style="left: 40%; animation-delay: 4s;"></span>
+  <span style="left: 60%; animation-delay: 1s;"></span>
+  <span style="left: 80%; animation-delay: 3s;"></span>
+</div>
 
-    <!-- PÁGINA 2: Cláusulas -->
-    <div class="pagina">
-      <h2>📜 Nuestras Cláusulas</h2>
-      <div class="clausula">❤️ Haré que sonrías incluso en tus días grises.</div>
-      <div class="clausula">🔥 Te robaré besos y abrazos sin previo aviso.</div>
-      <div class="clausula">💋 Mi amor será intenso, loco y juguetón.</div>
-      <div class="clausula">🛏️ Mis caricias serán abrigo y mis palabras, refugio.</div>
-      <div class="clausula">🌹 Amo cada parte de ti: tu mente, tu alma, tu cuerpo.</div>
-      <div class="clausula">🫂 Siempre lucharemos por lo nuestro.</div>
-      <div class="clausula">✨ Confío en ti y en nuestro futuro juntos.</div>
-    </div>
+<audio id="musica" src="https://www.bensound.com/bensound-music/bensound-love.mp3" autoplay loop></audio>
 
-    <!-- PÁGINA 3: Foto 1 -->
-    <div class="pagina">
-      <h2>📸 Nuestro recuerdo 1</h2>
-      <img src="fotobb1.jpg" alt="Foto 1">
-      <p>Ese día en que tu sonrisa fue mi lugar favorito. 💫</p>
-    </div>
-
-    <!-- PÁGINA 4: Foto 2 -->
-    <div class="pagina">
-      <h2>📸 Nuestro recuerdo 2</h2>
-      <img src="fotobb2.jpg" alt="Foto 2">
-      <p>Una imagen que habla de lo mucho que te amo. 🌷</p>
-    </div>
-
-    <!-- PÁGINA 5: Video 1 -->
-    <div class="pagina">
-      <h2>🎥 Momento especial</h2>
-      <video controls>
-        <source src="videobai1.mp4" type="video/mp4">
-        Tu navegador no soporta este video.
-      </video>
-      <p>Un instante que quiero guardar por siempre. 🎞️</p>
-    </div>
-
-    <!-- PÁGINA 6: Video 2 -->
-    <div class="pagina">
-      <h2>🎥 Nuestro otro momento</h2>
-      <video controls>
-        <source src="videobb2.mp4" type="video/mp4">
-        Tu navegador no soporta este video.
-      </video>
-      <p>Un recuerdo más que se queda en mi alma. 💘</p>
-    </div>
-
-    <!-- PÁGINA 7: Final -->
-    <div class="pagina">
-      <h2>💌 Siempre tú</h2>
-      <p style="font-size: 18px;">
-        Gracias por estos momentos, por tu paciencia, tu amor y tu dulzura. 
-        <br><br>
-        Cada día contigo es una bendición. Te elijo hoy, mañana y siempre. 
-        <br><br>
-        Te amo infinitamente. 💖
-      </p>
-    </div>
-
-    <!-- BOTONES -->
-    <div class="botones">
-      <button id="btnAnterior" onclick="anterior()" style="display: none;">⏮️ Anterior</button>
-      <button id="btnSiguiente" onclick="siguiente()">Siguiente ⏭️</button>
-    </div>
+<div class="libro">
+  <!-- Página 1: Introducción -->
+  <div class="pagina" style="display: flex;">
+    <h2>💞 Contrato de Amor</h2>
+    <p>Bienvenida, mi amor. Este contrato no es de obligación, sino de deseo... el deseo de amarte de todas las formas posibles. Presiona "Siguiente" para leer lo que late en mi corazón. ❤️</p>
   </div>
 
-  <script>
-    let paginaActual = 0;
-    const paginas = document.querySelectorAll('.pagina');
-    const btnAnterior = document.getElementById("btnAnterior");
-    const btnSiguiente = document.getElementById("btnSiguiente");
+  <!-- Página 2: Cláusulas -->
+  <div class="pagina">
+    <h2>📜 Cláusulas que encienden</h2>
+    <div class="clausula">💋 Me comprometo a llenarte de besos inesperados y caricias interminables.</div>
+    <div class="clausula">🔥 A tocarte el alma… y a veces, también la espalda baja.</div>
+    <div class="clausula">💞 A provocarte sonrisas dulces y pensamientos traviesos.</div>
+    <div class="clausula">🛏️ A hacer que nuestras noches sean inolvidables y nuestras mañanas deseadas.</div>
+    <div class="clausula">👀 A mirar tu cuerpo como se mira una obra de arte… con admiración y deseo.</div>
+    <div class="clausula">💬 A susurrarte lo que nadie más sabrá… y cumplirlo.</div>
+    <div class="clausula">💌 A escribirte cartas con el cuerpo, los labios y el corazón.</div>
+  </div>
 
-    function mostrarPagina(index) {
-      paginas.forEach((p, i) => {
-        p.style.display = i === index ? 'flex' : 'none';
-      });
+  <!-- Página 3: Foto 1 -->
+  <div class="pagina">
+    <h2>📸 Nuestro momento 1</h2>
+    <img src="fotobb1.jpg" alt="Foto 1">
+    <p>Ese día en que tu sonrisa fue mi lugar favorito. 💫</p>
+  </div>
 
-      // Ocultar botón "Anterior" en la primera página
-      btnAnterior.style.display = index === 0 ? "none" : "inline-block";
+  <!-- Página 4: Foto 2 -->
+  <div class="pagina">
+    <h2>📸 Nuestro momento 2</h2>
+    <img src="fotobb2.jpg" alt="Foto 2">
+    <p>No hay filtro más perfecto que tus ojos mirándome. 💘</p>
+  </div>
 
-      // Mostrar u ocultar botón "Siguiente" en la última página
-      btnSiguiente.style.display = index === paginas.length - 1 ? "none" : "inline-block";
+  <!-- Página 5: Video 1 -->
+  <div class="pagina">
+    <h2>🎥 Tú en movimiento</h2>
+    <video controls>
+      <source src="videobai1.mp4" type="video/mp4">
+    </video>
+    <p>Un instante que quiero repetir cada noche. 🌙</p>
+  </div>
 
-      // Pausar todos los videos excepto el actual
-      document.querySelectorAll("video").forEach((v, i) => {
-        if (i !== index) v.pause();
-      });
+  <!-- Página 6: Video 2 -->
+  <div class="pagina">
+    <h2>🎥 Otra razón para amarte</h2>
+    <video controls>
+      <source src="videobb2.mp4" type="video/mp4">
+    </video>
+    <p>Porque incluso en silencio, me haces sentir tanto. 🎞️</p>
+  </div>
+
+  <!-- Página 7: Final -->
+  <div class="pagina">
+    <h2>💌 El cierre que no es final...</h2>
+    <p style="font-size: 18px;">
+      Gracias por permitirme amarte sin límites, sin pausas y con locura.  
+      <br><br>
+      Eres mi historia favorita, mi deseo constante, mi amor ardiente y dulce.
+      <br><br>
+      Este contrato no termina aquí... comienza en cada beso tuyo. 💖
+    </p>
+  </div>
+
+  <!-- BOTONES -->
+  <div class="botones">
+    <button id="btnAnterior" onclick="anterior()" style="display: none;">⏮️ Anterior</button>
+    <button id="btnSiguiente" onclick="siguiente()">Siguiente ⏭️</button>
+  </div>
+</div>
+
+<script>
+  let paginaActual = 0;
+  const paginas = document.querySelectorAll('.pagina');
+  const btnAnterior = document.getElementById("btnAnterior");
+  const btnSiguiente = document.getElementById("btnSiguiente");
+  const musica = document.getElementById("musica");
+
+  function mostrarPagina(index) {
+    paginas.forEach((p, i) => p.style.display = i === index ? 'flex' : 'none');
+    btnAnterior.style.display = index === 0 ? "none" : "inline-block";
+    btnSiguiente.style.display = index === paginas.length - 1 ? "none" : "inline-block";
+
+    // Pausar música si hay video visible
+    const hayVideo = paginas[index].querySelector("video");
+    if (hayVideo) {
+      musica.pause();
+    } else {
+      musica.play().catch(()=>{});
     }
 
-    function siguiente() {
-      if (paginaActual < paginas.length - 1) {
-        paginaActual++;
-        mostrarPagina(paginaActual);
-      }
-    }
+    // Pausar todos los videos
+    document.querySelectorAll("video").forEach(v => v.pause());
+  }
 
-    function anterior() {
-      if (paginaActual > 0) {
-        paginaActual--;
-        mostrarPagina(paginaActual);
-      }
+  function siguiente() {
+    if (paginaActual < paginas.length - 1) {
+      paginaActual++;
+      mostrarPagina(paginaActual);
     }
+  }
 
-    // Mostrar la primera página al cargar
-    mostrarPagina(paginaActual);
-  </script>
+  function anterior() {
+    if (paginaActual > 0) {
+      paginaActual--;
+      mostrarPagina(paginaActual);
+    }
+  }
+
+  mostrarPagina(paginaActual);
+</script>
 </body>
 </html>
